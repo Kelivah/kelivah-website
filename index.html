@@ -15,13 +15,31 @@ body {
 }
 
 header {
-    padding: 60px 20px;
+    padding: 100px 20px 60px 20px;
+    background: radial-gradient(circle at top center, #ff4d6d 0%, #1a1a1a 80%);
+    box-shadow: 0 8px 20px rgba(255,77,109,0.4);
+    text-shadow:
+        0 0 5px #ff4d6d,
+        0 0 10px #ff4d6d,
+        0 0 20px #ff7a5a,
+        0 0 30px #ff7a5a;
 }
 
 h1 {
     font-size: 3rem;
     margin-bottom: 10px;
-    color: #ff4d6d;
+    color: #ffffff;
+    display: inline-block;
+    padding: 0 15px;
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 10px;
+    animation: pulseHeader 2s infinite;
+}
+
+@keyframes pulseHeader {
+    0% { text-shadow: 0 0 5px #ff4d6d, 0 0 10px #ff4d6d, 0 0 20px #ff7a5a, 0 0 30px #ff7a5a; }
+    50% { text-shadow: 0 0 10px #ff4d6d, 0 0 20px #ff4d6d, 0 0 30px #ff7a5a, 0 0 40px #ff7a5a; }
+    100% { text-shadow: 0 0 5px #ff4d6d, 0 0 10px #ff4d6d, 0 0 20px #ff7a5a, 0 0 30px #ff7a5a; }
 }
 
 .tagline {
@@ -30,18 +48,33 @@ h1 {
 }
 
 section {
-    padding: 50px 20px;
+    padding: 60px 20px;
+    max-width: 850px;
+    margin: auto;
+}
+
+h2 {
+    color: #ff4d6d;
+    margin-bottom: 20px;
 }
 
 .button {
     display: inline-block;
     padding: 12px 25px;
     margin: 10px;
-    background: linear-gradient(90deg, #ff4d6d, #ff7a5a);
+    background: linear-gradient(270deg, #ff4d6d, #ff7a5a, #ffb870);
+    background-size: 600% 600%;
     color: white;
     text-decoration: none;
     border-radius: 30px;
     transition: transform 0.2s, box-shadow 0.2s;
+    animation: gradientSlide 5s ease infinite;
+}
+
+@keyframes gradientSlide {
+    0% {background-position:0% 50%;}
+    50% {background-position:100% 50%;}
+    100% {background-position:0% 50%;}
 }
 
 .button:hover {
@@ -51,19 +84,19 @@ section {
 
 .social-buttons a {
     display: inline-block;
-    margin: 0 10px;
+    margin: 8px;
     padding: 10px 15px;
     background: #333;
     color: white;
     text-decoration: none;
     border-radius: 20px;
     font-size: 0.9rem;
-    transition: background 0.3s;
+    transition: background 0.3s, box-shadow 0.3s;
 }
 
 .social-buttons a:hover {
     background: linear-gradient(90deg, #ff4d6d, #ff7a5a);
-    color: white;
+    box-shadow: 0 0 15px #ff4d6d, 0 0 30px #ff7a5a;
 }
 
 img.album-cover {
@@ -73,6 +106,49 @@ img.album-cover {
     display: block;
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(255, 77, 109, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+img.album-cover:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(255, 77, 109, 0.6);
+}
+
+.contact-link {
+    color: #ff4d6d;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.2s;
+    animation: pulse 2s infinite;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+@keyframes pulse {
+    0% {box-shadow: 0 0 10px #25D366;}
+    50% {box-shadow: 0 0 20px #25D366;}
+    100% {box-shadow: 0 0 10px #25D366;}
 }
 
 footer {
@@ -81,14 +157,14 @@ footer {
     color: #888;
 }
 
-/* Mobile adjustments */
+iframe {
+    margin-top: 20px;
+    border-radius: 12px;
+}
+
 @media screen and (max-width: 600px) {
-    h1 {
-        font-size: 2.2rem;
-    }
-    .tagline {
-        font-size: 1rem;
-    }
+    h1 { font-size: 2.2rem; }
+    .tagline { font-size: 1rem; }
 }
 </style>
 </head>
@@ -106,29 +182,39 @@ footer {
     <p>
         Kelivah is an Afro-fusion artist blending emotion, melody, and real-life experiences into honest, reflective sound. His music explores growth, patience, imagination, and everyday truth, shaped by rhythm and sincerity.
     </p>
+    <p>
+        Stage Name: <strong>Kelivah</strong><br>
+        Real Name: <strong>Kelvin Ichokwu</strong><br>
+        Origin: <strong>Delta State, Nigeria</strong>
+    </p>
+    <p>
+        Kelivah began his music journey in mid-2024, creating beats and recording with mobile apps. In February 2026, he officially released his first single <strong>"Green Light"</strong>. That same month, three tracks were released: <strong>"Green Light"</strong>, <strong>"Dreams"</strong>, and <strong>"Happy Birthday (Great Day)"</strong>.
+    </p>
+    <p>
+        Currently a 300-level Biochemistry student at the Federal University of Technology, Minna, balancing academics and artistry.
+    </p>
 </section>
 
 <section id="music">
     <h2>Music</h2>
-    <p>More releases coming soon.</p>
+    <p>Stream all my songs on Spotify, SoundCloud, YouTube, and Audiomack — this player shows my latest release.</p>
 
-    <!-- Spotify profile link -->
-    <a href="https://open.spotify.com/user/31ahtshiz7zdrtyrlk5isbxbhs3q?si=C61gO5F6RB-TcCOcAhTkpQ" target="_blank" class="button">Listen on Spotify</a>
+    <img class="album-cover" src="album-placeholder.jpg" alt="Kelivah Album Cover">
 
-    <!-- YouTube channel link -->
-    <a href="https://www.youtube.com/@Kelvin_Ichokwu" target="_blank" class="button">Watch on YouTube</a>
+    <!-- Spotify artist embed -->
+    <iframe src="https://open.spotify.com/embed/artist/5MUGsdYoZLqdmwZ5xYJJb3" width="100%" height="380" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
-    <!-- Audiomack profile link -->
-    <a href="https://audiomack.com/delta-born-royalties" target="_blank" class="button">Listen on Audiomack</a>
-
-    <!-- Album cover placeholder -->
-    <img class="album-cover" src="album-placeholder.jpg" alt="Album Cover">
+    <!-- Streaming buttons -->
+    <a href="https://open.spotify.com/artist/5MUGsdYoZLqdmwZ5xYJJb3" target="_blank" class="button">Spotify</a>
+    <a href="https://soundcloud.com/Kelivah" target="_blank" class="button">SoundCloud</a>
+    <a href="https://www.youtube.com/@Kelvin_Ichokwu" target="_blank" class="button">YouTube</a>
+    <a href="https://audiomack.com/delta-born-royalties" target="_blank" class="button">Audiomack</a>
 </section>
 
 <section id="social">
-    <h2>Follow Me</h2>
+    <h2>Connect</h2>
     <div class="social-buttons">
-        <a href="https://www.instagram.com/kelvin_kelivah?igsh=MWNpcHk1ZXlmN2duag==" target="_blank">Instagram</a>
+        <a href="https://www.instagram.com/kelvin_kelivah" target="_blank">Instagram</a>
         <a href="https://www.tiktok.com/@kelivah_ichok" target="_blank">TikTok</a>
         <a href="https://www.facebook.com/share/17qv6i9WH8/" target="_blank">Facebook</a>
     </div>
@@ -136,13 +222,20 @@ footer {
 
 <section id="contact">
     <h2>Contact</h2>
-    <p>Phone: +2349158305672</p>
-    <p>Email: officialkelivah93@gmail.com</p>
+    <p>
+        Call / WhatsApp: <a href="tel:+2349158305672" class="contact-link">+2349158305672</a>
+    </p>
+    <p>
+        Email: <a href="mailto:officialkelivah93@gmail.com" class="contact-link">officialkelivah93@gmail.com</a>
+    </p>
 </section>
+
+<!-- Floating WhatsApp icon -->
+<a href="https://wa.me/2349158305672" class="whatsapp-float" target="_blank">💬</a>
 
 <footer>
     © 2026 Kelivah. All Rights Reserved.
 </footer>
 
 </body>
-            </html>
+</html>
